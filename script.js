@@ -1,61 +1,14 @@
-let current = 'intro';
-
-function nextScreen(id) {
-  document.getElementById(current).classList.remove('active');
-  document.getElementById(id).classList.add('active');
-  current = id;
-}
-
-// Valentine Prank Logic (like Susshiii)
-const noBtn = document.getElementById('noBtn');
-const yesBtn = document.getElementById('yesBtn');
-const message = document.getElementById('message');
-const gif = document.getElementById('gif');
-const surprise = document.getElementById('surprise');
-const heartsContainer = document.getElementById('hearts-container');
-
-let noCount = 0;
-const noMessages = [
-  "Arre please na 🥺",
-  "Are you sure? Think again!",
-  "No mat bol, dil toot jayega 😢",
-  "Pretty please? 🥹",
-  "Last chance... say yes! ❤️",
-  "I will cry if no 😭",
-  "You know you want to... 😉",
-  "One yes can make my day!",
-  "Please please please?",
-  "Ok fine... but really? 😔"
-];
-
-noBtn.addEventListener('click', () => {
-  noCount++;
-  if (noCount < noMessages.length) {
-    message.textContent = noMessages[noCount];
-    gif.src = "https://media.giphy.com/media/3o7TKSjRrfIPjeiVy8/giphy.gif"; // sad GIF
-  }
-  yesBtn.style.transform = `scale(${1 + noCount * 0.3})`; // Grow Yes
-  yesBtn.style.margin = `${20 + noCount * 10}px`; // Space adjust
-});
-
-yesBtn.addEventListener('click', () => {
-  message.style.display = 'none';
-  gif.style.display = 'none';
-  noBtn.style.display = 'none';
-  yesBtn.style.display = 'none';
-  surprise.style.display = 'block';
-
-  // Lots of hearts falling
-  setInterval(() => {
-    const heart = document.createElement('div');
-    heart.classList.add('heart');
-    heart.innerText = ['❤️','💖','💕','🌹'][Math.floor(Math.random()*4)];
-    heart.style.left = Math.random()*100 + 'vw';
-    heart.style.animationDuration = (Math.random()*4 + 4) + 's';
-    heartsContainer.appendChild(heart);
-    setTimeout(() => heart.remove(), 8000);
-  }, 200);
-});
-
-// Optional: Start with intro active
-document.getElementById('intro').classList.add('active');
+body { margin:0; font-family:Arial; background:linear-gradient(to bottom, #fff5f5, #ffe4e1); color:#333; text-align:center; overflow:hidden; height:100vh; } /* Light contrast bg */
+.screen { position:absolute; top:0; left:0; width:100%; height:100%; display:flex; justify-content:center; align-items:center; opacity:0; transition:opacity 0.5s; pointer-events:none; }
+.screen.active { opacity:1; pointer-events:all; }
+.msg-box { background:#ffdab9; /* Peach light */ padding:40px; border-radius:30px; /* Curvy */ max-width:80%; box-shadow:0 10px 20px rgba(0,0,0,0.1); }
+h1 { font-size:2.5em; margin:20px 0; color:#ff69b4; }
+p { font-size:1.4em; margin:20px 0; color:#555; }
+.sticker { width:200px; border-radius:15px; margin:20px 0; }
+button { background:#ff4757; color:white; border:none; padding:15px 40px; font-size:1.5em; border-radius:10px; cursor:pointer; margin:20px 0; transition:0.3s; }
+button:hover { transform:scale(1.1); background:#ff6b81; }
+.proposal { width:100%; }
+#surprise h2 { font-size:3em; color:#ffd700; }
+#hearts-container { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:10; }
+.heart { position:absolute; font-size:2em; animation:fall 6s linear infinite; }
+@keyframes fall { 0% { transform:translateY(-100vh) rotate(0deg); opacity:1; } 100% { transform:translateY(100vh) rotate(720deg); opacity:0; } }
