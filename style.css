@@ -1,13 +1,41 @@
-body { margin:0; font-family:Arial; background:linear-gradient(to bottom, #ff69b4, #ff1493); color:white; text-align:center; overflow:hidden; height:100vh; }
-.screen { position:absolute; top:0; left:0; width:100%; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; opacity:0; transition:opacity 0.5s; pointer-events:none; }
-.screen.active { opacity:1; pointer-events:all; }
-h1 { font-size:2.5em; margin:20px; text-shadow:2px 2px 5px #000; }
-p { font-size:1.4em; max-width:80%; margin:20px; }
-.gif { width:250px; border-radius:15px; margin:20px; }
-button { background:#ff4757; color:white; border:none; padding:15px 40px; font-size:1.5em; border-radius:10px; cursor:pointer; margin:20px; transition:0.3s; }
-button:hover { transform:scale(1.1); background:#ff6b81; }
-.proposal { padding:20px; }
-#surprise h2 { font-size:3em; color:#ffd700; }
-#hearts-container { position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; }
-.heart { position:absolute; font-size:2em; animation:fall 6s linear infinite; }
-@keyframes fall { 0% { transform:translateY(-100vh) rotate(0deg); opacity:1; } 100% { transform:translateY(100vh) rotate(720deg); opacity:0; } }
+let current = 'intro';
+
+function nextScreen(id) {
+  document.getElementById(current).classList.remove('active');
+  document.getElementById(id).classList.add('active');
+  current = id;
+}
+
+// Exact Susshiii Prank
+const noBtn = document.getElementById('noBtn');
+const yesBtn = document.getElementById('yesBtn');
+const message = document.getElementById('message');
+const gif = document.getElementById('gif');
+const surprise = document.getElementById('surprise');
+const heartsContainer = document.getElementById('hearts-container');
+
+let noCount = 0;
+const noMessages = [
+  "Arre please na 🥺",
+  "Are you sure? Think again!",
+  "No mat bol, dil toot jayega 😢",
+  "Pretty please? 🥹",
+  "Last chance... say yes! ❤️",
+  "I will cry if no 😭",
+  "You know you want to... 😉",
+  "One yes can make my day!",
+  "Please please please?",
+  "Ok fine... but really? 😔"
+];
+const gifSources = [
+  "https://media.giphy.com/media/3o7TKSjRrfIPjeiVy8/giphy.gif", // Initial
+  "https://media.giphy.com/media/3o7TKRn1jgbMWxKmmY/giphy.gif", // Sadder 1
+  "https://media.giphy.com/media/l0HlRnAWXxn0MhKLK/giphy.gif", // Sadder 2
+  "https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif", // Etc. (add more if needed)
+  "https://media.giphy.com/media/26BRv0ThflsHCqDrO/giphy.gif",
+  "https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif",
+  "https://media.giphy.com/media/l0HlPwynBzbWC3Wco/giphy.gif",
+  "https://media.giphy.com/media/3o7TKSjRrfIPjeiVy8/giphy.gif",
+  "https://media.giphy.com/media/3o7TKRn1jgbMWxKmmY/giphy.gif",
+  "https://media.giphy.com/media/l0HlRnAWXxn0MhKLK/giphy.gif"
+];
