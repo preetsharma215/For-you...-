@@ -8,44 +8,54 @@
 </head>
 <body>
   <div id="intro" class="screen active">
-    <h1>I want to say something 👉🏻👈🏻</h1>
-    <button onclick="nextScreen('rose')">Tap to see 💕</button>
+    <div class="msg-box">
+      <h1>I want to say something 👉🏻👈🏻</h1>
+      <button onclick="nextScreen('rose')">Tap to see 💕</button>
+    </div>
   </div>
 
   <div id="rose" class="screen">
-    <h1>Happy Rose Day! 🌹</h1>
-    <p>[Yahan sweet message daal dena, jaise: Tum meri zindagi ki sabse khoobsurat rose ho... ❤️]</p>
-    <img src="https://media.giphy.com/media/l0HlRnAWXxn0MhKLK/giphy.gif" alt="Rose" class="gif"/>
-    <button onclick="nextScreen('teddy')">Next →</button>
+    <div class="msg-box">
+      <h1>Happy Rose Day! 🌹</h1>
+      <p>Phool mere pyaare se phool ke liye</p>
+      <img src="https://media.giphy.com/media/3o7TKRn1jgbMWxKmmY/giphy.gif" alt="Rose motion sticker" class="sticker"/>
+      <button onclick="nextScreen('teddy')">Next →</button>
+    </div>
   </div>
 
   <div id="teddy" class="screen">
-    <h1>Happy Teddy Day! 🧸</h1>
-    <p>[Teddy wala message: Tumhare saath har pal cozy lagta hai... 🤗]</p>
-    <img src="https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif" alt="Teddy" class="gif"/>
-    <button onclick="nextScreen('promise')">Next →</button>
-  </div>
-
-  <div id="promise" class="screen">
-    <h1>Happy Promise Day! 🤝</h1>
-    <p>[Promise message: Hamesha saath rahunga, promise! 💍]</p>
-    <img src="https://media.giphy.com/media/26BRv0ThflsHCqDrO/giphy.gif" alt="Promise" class="gif"/>
-    <button onclick="nextScreen('chocolate')">Next →</button>
+    <div class="msg-box">
+      <h1>Happy Teddy Day! 🧸</h1>
+      <p>Mai hu to tumhara teddy 🤭</p>
+      <img src="https://media.giphy.com/media/3o7TKRn1jgbMWxKmmY/giphy.gif" alt="Shy teddy motion sticker" class="sticker"/> <!-- Shy teddy animation -->
+      <button onclick="nextScreen('chocolate')">Next →</button>
+    </div>
   </div>
 
   <div id="chocolate" class="screen">
-    <h1>Happy Chocolate Day! 🍫</h1>
-    <p>[Chocolate message: Tum meri sabse sweet ho... 😘]</p>
-    <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt="Chocolate" class="gif"/>
-    <button onclick="nextScreen('valentine')">Final Surprise →</button>
+    <div class="msg-box">
+      <h1>Happy Chocolate Day! 🍫</h1>
+      <p>Our relationship is like kitkat bbu... </p>
+      <img src="https://media.giphy.com/media/l0HlRnAWXxn0MhKLK/giphy.gif" alt="KitKat fun image" class="sticker"/> <!-- Fun KitKat motion -->
+      <button onclick="nextScreen('promise')">Next →</button>
+    </div>
   </div>
 
-  <!-- Valentine Prank Part (Susshiii style) -->
+  <div id="promise" class="screen">
+    <div class="msg-box">
+      <h1>Happy Promise Day! 🤝</h1>
+      <p>Mummy kasam sarr drd bnn jaunga prr dil ka drd nhi</p>
+      <img src="https://media.giphy.com/media/26BRv0ThflsHCqDrO/giphy.gif" alt="Promise motion sticker" class="sticker"/>
+      <button onclick="nextScreen('valentine')">Final Surprise →</button>
+    </div>
+  </div>
+
+  <!-- Valentine Prank Part (Exact Susshiii style copy) -->
   <div id="valentine" class="screen">
-    <div class="proposal">
-      <h1>Kya tu meri Valentine banegi? 💘</h1>
+    <div class="msg-box proposal">
+      <h1>Will you be my Valentine💝</h1>
       <div class="gif-container">
-        <img id="gif" src="https://media.giphy.com/media/3o7TKSjRrfIPjeiVy8/giphy.gif" alt="Sad bear"/>
+        <img id="gif" src="https://media.giphy.com/media/3o7TKSjRrfIPjeiVy8/giphy.gif" alt="Initial bear"/>
       </div>
       <p id="message">Please say yes... 🥺</p>
       <div class="buttons">
@@ -54,8 +64,8 @@
       </div>
       <div id="surprise" style="display:none;">
         <h2>Yayyyy! 💖🎉</h2>
-        <p>[Yahan final message: I love you forever, milte hain jaldi... 🌹🧸🍫🤝]</p>
-        <img id="happyGif" src="https://media.giphy.com/media/26BRv0ThflsHCqDrO/giphy.gif" alt="Happy hearts"/>
+        <p>[Final message daal dena: Love you forever, milte hain... 🌹🧸🍫🤝]</p>
+        <img id="happyGif" src="https://media.giphy.com/media/l0HlPwynBzbWC3Wco/giphy.gif" alt="Happy celebration GIF"/>
         <div id="hearts-container"></div> <!-- Lots of hearts -->
       </div>
     </div>
